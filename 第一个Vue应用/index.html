@@ -19,9 +19,9 @@
 </head>
 <body>
     <div id="app">
-        <h1>商品管理系统</h1>
+        <h1>系统名称：{{ title }}</h1>
         <ul>
-            <li v-for= "(item, index) in products">
+            <li v-for= "(item, index) in products" v-bind:key="item.id">
                商品名称：{{item.name}} 商品库存：
                <button @click="changeStock(item, item.stock - 1)">-</button>
                {{item.stock ? item.stock : "无货"}}
@@ -36,10 +36,11 @@
         const vm = new Vue({
             el: "#app",
             data: {
+                title: "商品管理系统",
                 products: [
-                    { name: "iphone", stock: 10 },
-                    { name: "xiaomi", stock: 9 },
-                    { name: "huawei", stock: 8 }
+                    { id: 1, name: "iphone", stock: 10 },
+                    { id: 2, name: "xiaomi", stock: 9 },
+                    { id: 3, name: "huawei", stock: 8 }
                 ]
             },
             computed: {
