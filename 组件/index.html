@@ -19,13 +19,20 @@
             },
             template: `<button @click="count ++">点击{{count}}次</button>`
         };
+        var Tittle = {
+            template: `
+            <h2>这是一个标题</h2>
+            `
+        }
         var vm = new Vue({
             components: {
                 // 组件局部注册
-                MyButton
+                MyButton,
+                Tittle
             },
             template: `
             <div>
+                <Tittle />
                 <MyButton />
             </div>`
         });
