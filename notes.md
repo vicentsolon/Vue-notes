@@ -157,6 +157,32 @@ var otherComp = {
 ```
 
 ## 工程结构
-1.入口文件
-2.组件注册
-3.组件文件
+1.入口文件 main.js
+2.组件注册 App.js
+3.组件文件 components/xxx.js
+
+## 搭建工程
+官方文档
+> vue-cli: https://cli.vuejs.org/zh/
+
+### SFC
+
+单文件组件，Single File Component，即一个文件就包含了一个组件所需的全部代码
+
+```html
+<template>
+	<!-- 组件模板代码 -->
+</template>
+
+<script>
+export default {
+  // 组件配置
+}
+</script>
+
+<style>
+	/* 组件样式 */
+</style>
+```
+
+## 计算属性
