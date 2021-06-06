@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Icon type="home" />
+        <Icon type="weixin" />
     </div>
 </template>
 
@@ -14,8 +14,9 @@
 </script>
 
 <style lang="less" scoped>
-    .iconfont {
-        color: #f40;
-        font-size: 30px;
+    @import "~@/styles/var.less";
+    .icon-container {
+        font-size: 32px;
+        color: @lightWords;
     }
 </style>

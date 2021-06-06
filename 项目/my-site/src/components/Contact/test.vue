@@ -1,26 +1,25 @@
 <template>
     <div class="test-container">
-        <Empty />
+        <Contact />
     </div>
 </template>
 
 <script>
-    import Empty from "./";
+    import Contact from "./";
     export default {
         components: {
-            Empty,
-        },
-    };
+            Contact
+        }
+    }
 </script>
 
 <style lang="less" scoped>
+    @import "~@/styles/var.less";
     .test-container {
-        width: 500px;
-        height: 400px;
+        width: 300px;
+        height: 500px;
         border: 1px solid;
+        background: @dark;
         margin: 0 auto;
-        position: relative;
-        resize: both;
-        overflow: hidden;
     }
 </style>

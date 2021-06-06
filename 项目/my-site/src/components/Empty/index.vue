@@ -22,13 +22,13 @@
 
 <style lang="less" scoped>
     @import "~@/styles/var.less";
+    @import "~@/styles/mixin.less";
     .empty-container {
-        width: 100%;
+        .self-center();
+        color: @gray;
         text-align: center;
-        color: @lightWords;
-        font-size: 50px;
-        p {
-            font-size: 12px;
+        .icon-container {
+            font-size: 72px;
         }
     }
 </style>

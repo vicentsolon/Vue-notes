@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="test-container">
         <ImageLoader
             @imageChange="handleImageChange"
             src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit=crop&crop=entropy&w=3456&h=2304"
-            :placeholder="placeholder"
+            placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100"
         />
     </div>
 </template>
@@ -14,18 +14,19 @@
         components: {
             ImageLoader,
         },
-        data() {
-            return {
-                placeholder:
-                    "https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100",
-            };
-        },
         methods: {
-            handleImageChange(url) {
-                this.placeholder = url;
+            handleImageChange() {
+                console.log("图片加载结束")
             },
         },
     };
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+    .test-container {
+        width: 500px;
+        height: 400px;
+        border: 1px solid;
+        margin: 0 auto;
+    }
+</style>

@@ -1,6 +1,15 @@
 <template>
     <div class="imageloader-container">
-        <img @load="handleLoad" :src="placeholder" />
+        <img v-if="!everythingDone" class="placeholder" :src="placeholder" />
+        <img
+            @load="handleLoad"
+            class="origin"
+            :src="src"
+            :style="{
+                opacity: originOpacity,
+                transition: `all ${duration}ms`,
+            }"
+        />
     </div>
 </template>
 
@@ -22,22 +31,42 @@
         },
         methods: {
             handleLoad() {
-                let url = this.src;
                 let timer = null;
+                this.originLoaded = true;
                 timer = setTimeout(() => {
-                    this.$emit("imageChange", url);
+                    this.everythingDone = true;
+                    this.$emit("imageChange");
                     clearTimeout(timer);
                 }, this.duration);
+            },
+        },
+        data() {
+            return {
+                originLoaded: false,
+                everythingDone: false
+            };
+        },
+        computed: {
+            originOpacity() {
+                return this.originLoaded ? 1 : 0;
             },
         },
     };
 </script>
 
 <style lang="less" scoped>
+    @import "~@/styles/mixin.less";
     .imageloader-container {
-        width: 500px;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
         img {
-            width: 100%;
+            .self-fill();
+            object-fit: cover;
+        }
+        .placeholder {
+            filter: blur(2vw);
         }
     }
 </style>
